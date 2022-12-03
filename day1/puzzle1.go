@@ -8,7 +8,7 @@ import (
 )
 
 func Puzzle1() int {
-	file, err := os.Open("day1/sampleInput.txt")
+	file, err := os.Open("day1/input.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
