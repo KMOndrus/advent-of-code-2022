@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"advent-of-code-2022/day1"
+	"fmt"
+)
 
 func main() {
-	fmt.Println("hello")
+	day1Puzzle1 := day1.Puzzle1()
+	fmt.Printf("Day 1 Puzzle 1 Result: %d\n", day1Puzzle1)
 }
