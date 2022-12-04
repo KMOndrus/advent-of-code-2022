@@ -15,4 +15,7 @@ func main() {
 
 	day2Puzzle1 := day2.Puzzle1()
 	fmt.Printf("Day 2 Puzzle 1 Result: %d\n", day2Puzzle1)
+
+	day2Puzzle2 := day2.Puzzle2()
+	fmt.Printf("Day 2 Puzzle 2 Result: %d\n", day2Puzzle2)
 }
