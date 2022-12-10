@@ -13,9 +13,9 @@ func main() {
 	day1Puzzle2 := day1.Puzzle2()
 	fmt.Printf("Day 1 Puzzle 2 Result: %v\n", day1Puzzle2)
 
-	day2Puzzle1 := day2.Puzzle1()
+	day2Puzzle1 := day2.Puzzles(1)
 	fmt.Printf("Day 2 Puzzle 1 Result: %d\n", day2Puzzle1)
 
-	day2Puzzle2 := day2.Puzzle2()
+	day2Puzzle2 := day2.Puzzles(2)
 	fmt.Printf("Day 2 Puzzle 2 Result: %d\n", day2Puzzle2)
 }

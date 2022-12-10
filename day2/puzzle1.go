@@ -7,23 +7,6 @@ import (
 	"strings"
 )
 
-type Move int
-
-const (
-	Rock Move = iota
-	Paper
-	Scissors
-	NoMove
-)
-
-type WinStatus int
-
-const (
-	Win WinStatus = iota
-	Loss
-	Draw
-)
-
 func Puzzle1() int {
 	file, err := os.Open("day2/input.txt")
 	if err != nil {
@@ -38,34 +21,6 @@ func Puzzle1() int {
 		finalScore += roundScore
 	}
 	return finalScore
-}
-
-func getScoreForRound(moveString string) int {
-	myMove, opponentMove := getMovesForRound(moveString)
-	winStatus := getWinStatus(myMove, opponentMove)
-	return calculateRoundScore(myMove, winStatus)
-}
-
-func calculateRoundScore(myMove Move, status WinStatus) int {
-	roundScore := 0
-
-	switch myMove {
-	case Rock:
-		roundScore += 1
-	case Paper:
-		roundScore += 2
-	case Scissors:
-		roundScore += 3
-	}
-
-	switch status {
-	case Win:
-		roundScore += 6
-	case Draw:
-		roundScore += 3
-	}
-
-	return roundScore
 }
 
 func getWinStatus(myMove, opponentMove Move) WinStatus {
@@ -88,7 +43,7 @@ func getWinStatus(myMove, opponentMove Move) WinStatus {
 	return Loss
 }
 
-func getMovesForRound(moveString string) (myMove, opponentMove Move) {
+func getMovesForRound(moveString string) (opponentMove, myMove Move) {
 	bothMoves := strings.Split(moveString, " ")
 	if len(bothMoves) != 2 {
 		log.Fatal("Not the right number of players for the round")
@@ -119,5 +74,5 @@ func getMovesForRound(moveString string) (myMove, opponentMove Move) {
 	if myMove == NoMove || opponentMove == NoMove {
 		log.Fatal("Somebody used an unknown gesture!")
 	}
-	return myMove, opponentMove
+	return opponentMove, myMove
 }
